@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<sdf version='1.4'>
+    <model name="give_way">
+        <static>1</static>
+        <link name="link_1">
+            <visual name='visual'>
+                <pose frame=''>0 0 0 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://give_way/meshes/give_way.dae</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+    </model>
+</sdf>

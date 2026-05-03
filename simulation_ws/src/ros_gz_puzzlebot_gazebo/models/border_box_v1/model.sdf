@@ -1,0 +1,53 @@
+<?xml version='1.4'?>
+<sdf version='1.4'>
+    <model name="border_box_v1">
+        <static>1</static>
+        <link name="link_1">
+            <visual name='visual'>
+                <pose frame=''>0 0 0 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://border_box_v1/meshes/border_box.dae</uri>
+                        <scale>1.3 1.2 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+
+            <collision name="collision_1">
+                <pose frame=''>0 -2.61 0.225 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>5.4 0.12 0.45</size>
+                    </box>
+                </geometry>
+            </collision>
+
+            <collision name="collision_2">
+                <pose frame=''>0 2.664 0.225 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>5.4 0.12 0.45</size>
+                    </box>
+                </geometry>
+            </collision>
+
+            <collision name="collision_3">
+                <pose frame=''>-2.73 0 0.225 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>0.12 5.4 0.45</size>
+                    </box>
+                </geometry>
+            </collision>
+
+            <collision name="collision_4">
+                <pose frame=''>2.664 0 0.225 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>0.12 5.4 0.45</size>
+                    </box>
+                </geometry>
+            </collision>
+        </link>
+    </model>
+</sdf>

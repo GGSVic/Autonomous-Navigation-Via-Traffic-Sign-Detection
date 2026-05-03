@@ -1,0 +1,7 @@
+[submodule "simulation_ws/src/ros_gz_plugins/traffic_light_plugin"]
+	path = simulation_ws/src/ros_gz_plugins/traffic_light_plugin
+	url = https://github.com/GGSVic/traffic_light_plugin.git
+[submodule "simulation_ws/src/ros_gz_puzzlebot"]
+	path = simulation_ws/src/ros_gz_puzzlebot
+	url = https://github.com/GGSVic/puzzlebot_core.git
+	branch = ign-sim

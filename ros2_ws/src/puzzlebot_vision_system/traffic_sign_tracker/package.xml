@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>traffic_sign_tracker</name>
+  <version>1.0.0</version>
+  <description>
+    High-performance traffic sign perception system using YOLOv8 and a custom 
+    Centroid Tracker. This package provides real-time infrastructure detection, 
+    functional family categorization, and temporal consistency management. 
+    Developed specifically for resource-constrained hardware like the Puzzlebot.
+  </description>
+  <maintainer email="victormvm05043@gmail.com">Victor Manuel Vazquez Morales</maintainer>
+  <license>Apache-2.0</license>
+
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>ament_index_python</depend>
+  <depend>puzzlebot_interfaces</depend>
+
+  <exec_depend>python3-ultralytics</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

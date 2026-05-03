@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>ros_gz_puzzlebot_gazebo</name>
+  <version>1.0.0</version>
+  <description>Gazebo simulation integration for Puzzlebot, featuring modular tracks and traffic light systems.</description>
+  <maintainer email="victormvm05043@gmail.com">Victor Manuel Vázquez Morales</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Execution dependencies for launch and simulation -->
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>ros_gz_puzzlebot_bringup</exec_depend>
+  <exec_depend>traffic_light_plugin</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

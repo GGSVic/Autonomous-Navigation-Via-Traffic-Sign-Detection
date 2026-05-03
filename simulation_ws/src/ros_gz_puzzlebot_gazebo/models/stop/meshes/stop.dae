@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 4.5.4 LTS commit date:2025-10-27, commit time:12:46, hash:b3efe983cc58</authoring_tool>
+    </contributor>
+    <created>2025-11-07T14:15:18</created>
+    <modified>2025-11-07T14:15:18</modified>
+    <unit name="meter" meter="1" />
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="front-effect">
+      <profile_COMMON>
+        <newparam sid="stop_png-surface">
+          <surface type="2D">
+            <init_from>stop_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="stop_png-sampler">
+          <sampler2D>
+            <source>stop_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="stop_png-sampler" texcoord="stop_mesh-mesh-map-0" />
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.5</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="back-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.3277758 0.3277784 0.3277782 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.5</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="stop_png" name="stop_png">
+      <init_from>../materials/textures/stop.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="front-material" name="front">
+      <instance_effect url="#front-effect" />
+    </material>
+    <material id="back-material" name="back">
+      <instance_effect url="#back-effect" />
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="stop_mesh-mesh" name="stop_mesh">
+      <mesh>
+        <source id="stop_mesh-mesh-positions">
+          <float_array id="stop_mesh-mesh-positions-array" count="48">0 0.03499984 0 -0.02474874
+            0.02474874 0 -0.03499984 0 0 -0.02474874 -0.02474874 0 0 -0.03499984 0 0.02474874
+            -0.02474874 0 0.03499984 0 0 0.02474874 0.02474874 0 0.02474862 0.02474862 -2.00001e-4
+            0.03499996 0 -2.00003e-4 0.02474862 -0.02474862 -2.00003e-4 0 -0.03499996 -2.00001e-4
+            -0.02474862 -0.02474862 -1.99999e-4 -0.03499996 0 -1.99997e-4 -0.02474862 0.02474862
+            -1.99997e-4 0 0.03499996 -1.99999e-4</float_array>
+          <technique_common>
+            <accessor source="#stop_mesh-mesh-positions-array" count="16" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="stop_mesh-mesh-normals">
+          <float_array id="stop_mesh-mesh-normals-array" count="18">0 0 1 0 0 -1 0 0 -1 0 0 -1 0 0
+            -1 0 0 -1</float_array>
+          <technique_common>
+            <accessor source="#stop_mesh-mesh-normals-array" count="6" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="stop_mesh-mesh-map-0">
+          <float_array id="stop_mesh-mesh-map-0-array" count="72">0.2888852 0.01861852 0.9813815
+            0.2888852 0.7111148 0.9813815 0.7111148 0.9813815 0.3088926 0.9896688 0.01861852
+            0.7111148 0.01861852 0.7111148 0.01033121 0.3088926 0.2888852 0.01861852 0.2888852
+            0.01861852 0.6911074 0.01033121 0.9813815 0.2888852 0.9813815 0.2888852 0.9896688
+            0.6911074 0.7111148 0.9813815 0.7111148 0.9813815 0.01861852 0.7111148 0.2888852
+            0.01861852 0.2888852 0.01861852 0.9813815 0.2888852 0.7111148 0.9813815 0.7111148
+            0.9813815 0.3088926 0.9896688 0.01861852 0.7111148 0.01861852 0.7111148 0.01033121
+            0.3088926 0.2888852 0.01861852 0.2888852 0.01861852 0.6911074 0.01033121 0.9813815
+            0.2888852 0.9813815 0.2888852 0.9896688 0.6911074 0.7111148 0.9813815 0.7111148
+            0.9813815 0.01861852 0.7111148 0.2888852 0.01861852</float_array>
+          <technique_common>
+            <accessor source="#stop_mesh-mesh-map-0-array" count="36" stride="2">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="stop_mesh-mesh-vertices">
+          <input semantic="POSITION" source="#stop_mesh-mesh-positions" />
+        </vertices>
+        <triangles material="front-material" count="6">
+          <input semantic="VERTEX" source="#stop_mesh-mesh-vertices" offset="0" />
+          <input semantic="NORMAL" source="#stop_mesh-mesh-normals" offset="1" />
+          <input semantic="TEXCOORD" source="#stop_mesh-mesh-map-0" offset="2" set="0" />
+          <p>3 0 0 5 0 1 7 0 2 7 0 3 0 0 4 1 0 5 1 0 6 2 0 7 3 0 8 3 0 9 4 0 10 5 0 11 5 0 12 6 0 13
+            7 0 14 7 0 15 1 0 16 3 0 17</p>
+        </triangles>
+        <triangles material="back-material" count="6">
+          <input semantic="VERTEX" source="#stop_mesh-mesh-vertices" offset="0" />
+          <input semantic="NORMAL" source="#stop_mesh-mesh-normals" offset="1" />
+          <input semantic="TEXCOORD" source="#stop_mesh-mesh-map-0" offset="2" set="0" />
+          <p>11 1 18 13 1 19 15 1 20 15 2 21 8 2 22 9 2 23 9 3 24 10 3 25 11 3 26 11 4 27 12 4 28 13
+            4 29 13 3 30 14 3 31 15 3 32 15 5 33 9 5 34 11 5 35</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="stop" name="stop" type="NODE">
+        <matrix sid="transform">0.9238795 -0.3826835 0 0 0.3826835 0.9238795 0 0 0 0 1 10e-5 0 0 0 1</matrix>
+        <instance_geometry url="#stop_mesh-mesh" name="stop">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="front-material" target="#front-material">
+                <bind_vertex_input semantic="stop_mesh-mesh-map-0" input_semantic="TEXCOORD"
+                  input_set="0" />
+              </instance_material>
+              <instance_material symbol="back-material" target="#back-material">
+                <bind_vertex_input semantic="stop_mesh-mesh-map-0" input_semantic="TEXCOORD"
+                  input_set="0" />
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene" />
+  </scene>
+</COLLADA>

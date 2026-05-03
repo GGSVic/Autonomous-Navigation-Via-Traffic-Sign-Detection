@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<sdf version='1.4'>
+    <model name="piece_1">
+        <static>1</static>
+        <link name="link_1">
+            <visual name='visual'>
+                <pose frame=''>0 0 0.0015 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://puzzletrack_piece_1/meshes/piece_1.dae</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+            <!-- This model does not include a collision definition because it is supposed to be
+            used as ground-->
+        </link>
+    </model>
+</sdf>

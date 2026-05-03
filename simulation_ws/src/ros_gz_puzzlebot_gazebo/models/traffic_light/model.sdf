@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version='1.6'>
+    <model name="traffic_light">
+        <static>1</static>
+
+        <link name="body_link">
+            <visual name="body_mesh">
+                <pose>0 0 0 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://traffic_light/meshes/traffic_light.dae</uri>
+                        <scale>1.5 1.5 1.5</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+
+        <link name="red_led">
+            <pose>-0.001 -0.035 0.055 1.57 0.0 0.0</pose>
+            <light name='light' type='spot'>
+                <pose>0 0 0 0 0 0</pose>
+                <attenuation>
+                    <range>4.0</range>
+                    <constant>0.3</constant>
+                    <linear>0.01</linear>
+                    <quadratic>5.0</quadratic>
+                </attenuation>
+                <diffuse>1 0 0 1</diffuse>
+                <specular>1 0 0 1</specular>
+                <direction>0 -11.0 -1.0</direction>
+                <spot>
+                    <inner_angle>0.8</inner_angle>
+                    <outer_angle>2.0</outer_angle>
+                    <falloff>1.0</falloff>
+                </spot>
+                <cast_shadows>false</cast_shadows>
+            </light>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <radius>0.01415</radius>
+                        <length>0.0005</length>
+                    </cylinder>
+                </geometry>
+                <material>
+                    <ambient>0.15 0 0 1</ambient>
+                    <emissive>1 0 0 1</emissive>
+                </material>
+            </visual>
+        </link>
+
+        <link name="yellow_led">
+            <pose>-0.001 -0.035 0.028 1.57 0.0 0.0</pose>
+            <light name='light' type='spot'>
+                <pose>0 0 0 0 0 0</pose>
+                <attenuation>
+                    <range>4.0</range>
+                    <constant>0.3</constant>
+                    <linear>0.01</linear>
+                    <quadratic>5.0</quadratic>
+                </attenuation>
+                <diffuse>1 1 0 1</diffuse>
+                <specular>1 1 0 1</specular>
+                <direction>0 -11.0 -1.0</direction>
+                <spot>
+                    <inner_angle>0.8</inner_angle>
+                    <outer_angle>2.0</outer_angle>
+                    <falloff>1.0</falloff>
+                </spot>
+                <cast_shadows>false</cast_shadows>
+            </light>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <radius>0.01415</radius>
+                        <length>0.0005</length>
+                    </cylinder>
+                </geometry>
+                <material>
+                    <ambient>0.15 0.15 0 1</ambient>
+                    <emissive>1 1 0 1</emissive>
+                </material>
+            </visual>
+        </link>
+        
+        <link name="green_led">
+            <pose>-0.001 -0.035 -0.001 1.57 0.0 0.0</pose>
+            <light name='light' type='spot'>
+                <pose>0 0 0 0 0 0</pose>
+                <attenuation>
+                    <range>4.0</range>
+                    <constant>0.3</constant>
+                    <linear>0.01</linear>
+                    <quadratic>5.0</quadratic>
+                </attenuation>
+                <diffuse>0 1 0 1</diffuse>
+                <specular>0 1 0 1</specular>
+                <direction>0 -11.0 -1.0</direction>
+                <spot>
+                    <inner_angle>0.8</inner_angle>
+                    <outer_angle>2.0</outer_angle>
+                    <falloff>1.0</falloff>
+                </spot>
+                <cast_shadows>false</cast_shadows>
+            </light>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <radius>0.01415</radius>
+                        <length>0.0005</length>
+                    </cylinder>
+                </geometry>
+                <material>
+                    <ambient>0 0.15 0 1</ambient>
+                    <emissive>0 1 0 1</emissive>
+                </material>
+            </visual>
+        </link>
+
+        <joint name="joint_1" type="fixed">
+            <parent>body_link</parent>
+            <child>green_led</child>
+        </joint>
+        <joint name="joint_2" type="fixed">
+            <parent>body_link</parent>
+            <child>yellow_led</child>
+        </joint>
+        <joint name="joint_3" type="fixed">
+            <parent>body_link</parent>
+            <child>red_led</child>
+        </joint>
+
+    </model>
+</sdf>

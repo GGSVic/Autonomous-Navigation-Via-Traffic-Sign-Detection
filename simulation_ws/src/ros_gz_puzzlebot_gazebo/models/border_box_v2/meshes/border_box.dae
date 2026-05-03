@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 4.0.2 commit date:2023-12-05, commit time:07:41, hash:9be62e85b727</authoring_tool>
+    </contributor>
+    <created>2025-12-01T12:37:53</created>
+    <modified>2025-12-01T12:37:53</modified>
+    <unit name="meter" meter="1" />
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="Material_018-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.0579678 0.0579678 0.0579678 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="graffity_pattern_1-effect">
+      <profile_COMMON>
+        <newparam sid="graffity_pattern_1_png-surface">
+          <surface type="2D">
+            <init_from>graffity_pattern_1_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="graffity_pattern_1_png-sampler">
+          <sampler2D>
+            <source>graffity_pattern_1_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="graffity_pattern_1_png-sampler" texcoord="UVMap" />
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="graffity_pattern_2-effect">
+      <profile_COMMON>
+        <newparam sid="graffity_pattern_2_png-surface">
+          <surface type="2D">
+            <init_from>graffity_pattern_2_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="graffity_pattern_2_png-sampler">
+          <sampler2D>
+            <source>graffity_pattern_2_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="graffity_pattern_2_png-sampler" texcoord="UVMap" />
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="graffity_pattern_3-effect">
+      <profile_COMMON>
+        <newparam sid="graffity_pattern_3_png-surface">
+          <surface type="2D">
+            <init_from>graffity_pattern_3_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="graffity_pattern_3_png-sampler">
+          <sampler2D>
+            <source>graffity_pattern_3_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="graffity_pattern_3_png-sampler" texcoord="UVMap" />
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="graffity_pattern_4-effect">
+      <profile_COMMON>
+        <newparam sid="graffity_pattern_4_png-surface">
+          <surface type="2D">
+            <init_from>graffity_pattern_4_png</init_from> <!--4-->
+          </surface>
+        </newparam>
+        <newparam sid="graffity_pattern_4_png-sampler">
+          <sampler2D>
+            <source>graffity_pattern_4_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="graffity_pattern_4_png-sampler" texcoord="UVMap" />
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="rug_carpet-effect">
+      <profile_COMMON>
+        <newparam sid="rug_carpet_jpg-surface">
+          <surface type="2D">
+            <init_from>rug_carpet_jpg</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="rug_carpet_jpg-sampler">
+          <sampler2D>
+            <source>rug_carpet_jpg-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="rug_carpet_jpg-sampler" texcoord="UVMap" />
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="graffity_pattern_1_png" name="graffity_pattern_1_png">
+      <init_from>../materials/textures/graffity_pattern_1.png</init_from>
+    </image>
+    <image id="graffity_pattern_2_png" name="graffity_pattern_2_png">
+      <init_from>../materials/textures/graffity_pattern_2.png</init_from>
+    </image>
+    <image id="graffity_pattern_3_png" name="graffity_pattern_3_png">
+      <init_from>../materials/textures/graffity_pattern_3.png</init_from>
+    </image>
+    <image id="graffity_pattern_4_png" name="graffity_pattern_4_png">
+      <init_from>../materials/textures/graffity_pattern_4.png</init_from>
+    </image>
+    <image id="rug_carpet_jpg" name="rug_carpet_jpg">
+      <init_from>../materials/textures/rug_carpet.jpg</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="Material_018-material" name="Material.018">
+      <instance_effect url="#Material_018-effect" />
+    </material>
+    <material id="graffity_pattern_1-material" name="graffity_pattern_1">
+      <instance_effect url="#graffity_pattern_1-effect" />
+    </material>
+    <material id="graffity_pattern_2-material" name="graffity_pattern_2">
+      <instance_effect url="#graffity_pattern_2-effect" />
+    </material>
+    <material id="graffity_pattern_3-material" name="graffity_pattern_3">
+      <instance_effect url="#graffity_pattern_3-effect" />
+    </material>
+    <material id="graffity_pattern_4-material" name="graffity_pattern_4">
+      <instance_effect url="#graffity_pattern_4-effect" />
+    </material>
+    <material id="rug_carpet-material" name="rug_carpet">
+      <instance_effect url="#rug_carpet-effect" />
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Plane_018-mesh" name="Plane.018">
+      <mesh>
+        <source id="Plane_018-mesh-positions">
+          <float_array id="Plane_018-mesh-positions-array" count="336">0 -0.03852683 0 2 -0.03852683
+            0 0 1.961473 0 2 1.961473 0 -2 -2.038527 0 0 -2.038527 0 -2 -0.03852683 0 0 -0.03852683
+            0 0 -2.038527 0 2 -2.038527 0 0 -0.03852683 0 2 -0.03852683 0 -2 -0.03852683 0 0
+            -0.03852683 0 -2 1.961473 0 0 1.961473 0 0.6666666 -2.044445 0 0.6666666 -2.044445 0.45
+            0.6666666 -1.955556 0 0.6666666 -1.955556 0.45 2 -2.044445 0 2 -2.044445 0.45 2
+            -1.955556 0 2 -1.955556 0.45 -2 -2.044445 0 -2 -2.044445 0.45 -2 -1.955556 0 -2
+            -1.955556 0.45 -0.6666667 -2.044445 0 -0.6666667 -2.044445 0.45 -0.6666667 -1.955556 0
+            -0.6666667 -1.955556 0.45 -0.6666667 -2.044445 0 -0.6666667 -2.044445 0.45 -0.6666667
+            -1.955556 0 -0.6666667 -1.955556 0.45 0.6666666 -2.044445 0 0.6666666 -2.044445 0.45
+            0.6666666 -1.955556 0 0.6666666 -1.955556 0.45 -2 0.622222 0 -2 0.622222 0.45 -2.088889
+            0.622222 0 -2.088889 0.622222 0.45 -2 1.955555 0 -2 1.955555 0.45 -2.088889 1.955555 0
+            -2.088889 1.955555 0.45 -2 -2.044444 0 -2 -2.044444 0.45 -2.088889 -2.044444 0 -2.088889
+            -2.044444 0.45 -2 -0.7111112 0 -2 -0.7111112 0.45 -2.088889 -0.7111112 0 -2.088889
+            -0.7111112 0.45 -2 -0.7111112 0 -2 -0.7111112 0.45 -2.088889 -0.7111112 0 -2.088889
+            -0.7111112 0.45 -2 0.622222 0 -2 0.622222 0.45 -2.088889 0.622222 0 -2.088889 0.622222
+            0.45 0.6666665 1.866666 0 0.6666665 1.866666 0.45 0.6666665 1.955555 0 0.6666665
+            1.955555 0.45 2 1.866666 0 2 1.866666 0.45 2 1.955555 0 2 1.955555 0.45 -2 1.866666 0 -2
+            1.866666 0.45 -2 1.955555 0 -2 1.955555 0.45 -0.6666666 1.866666 0 -0.6666666 1.866666
+            0.45 -0.6666666 1.955555 0 -0.6666666 1.955555 0.45 -0.6666666 1.866666 0 -0.6666666
+            1.866666 0.45 -0.6666666 1.955555 0 -0.6666666 1.955555 0.45 0.6666666 1.866666 0
+            0.6666666 1.866666 0.45 0.6666666 1.955555 0 0.6666666 1.955555 0.45 2.088889 0.622222 0
+            2.088889 0.622222 0.45 2 0.622222 0 2 0.622222 0.45 2.088889 1.955555 0 2.088889
+            1.955555 0.45 2 1.955555 0 2 1.955555 0.45 2.088889 -2.044444 0 2.088889 -2.044444 0.45
+            2 -2.044444 0 2 -2.044444 0.45 2.088889 -0.7111112 0 2.088889 -0.7111112 0.45 2
+            -0.7111112 0 2 -0.7111112 0.45 2.088889 -0.7111112 0 2.088889 -0.7111112 0.45 2
+            -0.7111112 0 2 -0.7111112 0.45 2.088889 0.622222 0 2.088889 0.622222 0.45 2 0.622222 0 2
+            0.622222 0.45</float_array>
+          <technique_common>
+            <accessor source="#Plane_018-mesh-positions-array" count="112" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plane_018-mesh-normals">
+          <float_array id="Plane_018-mesh-normals-array" count="24">0 0 1 0 1 0 1 0 0 0 -1 0 0 0 -1
+            -1 0 0 1 1.98682e-7 0 -1 -3.97364e-7 0</float_array>
+          <technique_common>
+            <accessor source="#Plane_018-mesh-normals-array" count="8" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plane_018-mesh-map-0">
+          <float_array id="Plane_018-mesh-map-0-array" count="720">1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0
+            0 1 0 0 1 0 0 0.9969594 0.971684 0.003040552 0.01080137 0.9969594 0.01080137 0.625 0.5
+            0.375 0.75 0.375 0.5 0.625 0.75 0.375 1 0.375 0.75 0.375 0.5 0.125 0.75 0.125 0.5 0.875
+            0.5 0.625 0.75 0.625 0.5 0.625 0 0.375 0.25 0.375 0 0.9879898 0.934849 0.01201033
+            0.0294367 0.9879897 0.0294367 0.625 0.75 0.375 1 0.375 0.75 0.375 0.5 0.125 0.75 0.125
+            0.5 0.875 0.5 0.625 0.75 0.625 0.5 0.9779083 0.9898082 0.02209162 0.03887897 0.9779083
+            0.03887897 0.625 0.75 0.375 1 0.375 0.75 0.375 0.5 0.125 0.75 0.125 0.5 0.875 0.5 0.625
+            0.75 0.625 0.5 0.625 0.25 0.375 0.5 0.375 0.25 0.625 0.5 0.375 0.75 0.375 0.5 0.9895817
+            0.9853158 0.01041829 0.04472953 0.9895817 0.04472929 0.125 0.5 0.375 0.75 0.125 0.75
+            0.875 0.5 0.625 0.75 0.625 0.5 0.625 0 0.375 0.25 0.375 0 0.625 0.25 0.375 0.5 0.375
+            0.25 0.9890853 1.01271 0.01658385 -0.01105642 0.9890853 -0.01105642 0.375 0.5 0.125 0.75
+            0.125 0.5 0.875 0.5 0.625 0.75 0.625 0.5 0.625 0.25 0.375 0.5 0.375 0.25 0.9963764
+            0.9797378 0.003623604 0.02758556 0.9963764 0.02758508 0.375 0.5 0.125 0.75 0.125 0.5
+            0.875 0.5 0.625 0.75 0.625 0.5 0.625 0.25 0.375 0.5 0.375 0.25 0.625 0.5 0.375 0.75
+            0.375 0.5 0.9935498 0.9894029 0.006450176 0.004644393 0.9935498 0.004644334 0.375 0.5
+            0.125 0.75 0.125 0.5 0.875 0.5 0.625 0.75 0.625 0.5 0.625 0 0.375 0.25 0.375 0 0.625
+            0.25 0.375 0.5 0.375 0.25 0.9896941 0.9787876 0.01030582 0.03325879 0.9896941 0.03325879
+            0.375 0.5 0.125 0.75 0.125 0.5 0.875 0.5 0.625 0.75 0.625 0.5 0.625 0.25 0.375 0.5 0.375
+            0.25 0.9924363 0.9985222 0.00756365 2.5034e-5 0.9924363 2.5034e-5 0.375 0.5 0.125 0.75
+            0.125 0.5 0.875 0.5 0.625 0.75 0.625 0.5 0.9916056 0.9963416 0.008394181 0.01480484
+            0.9916056 0.01480484 0.625 0.5 0.375 0.75 0.375 0.5 0.625 0.75 0.375 1 0.375 0.75 0.125
+            0.5 0.375 0.75 0.125 0.75 0.875 0.5 0.625 0.75 0.625 0.5 0.625 0 0.375 0.25 0.375 0
+            0.994859 1.010245 6.24944e-4 -0.01147073 0.9947402 -0.01150941 0.625 0.75 0.375 1 0.375
+            0.75 0.375 0.5 0.125 0.75 0.125 0.5 0.875 0.5 0.625 0.75 0.625 0.5 0.98956 0.9840635
+            0.01043969 0.006685674 0.98956 0.006685674 0.625 0.75 0.375 1 0.375 0.75 0.375 0.5 0.125
+            0.75 0.125 0.5 0.875 0.5 0.625 0.75 0.625 0.5 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1
+            1 0 1 0.9969594 0.971684 0.003040552 0.971684 0.003040552 0.01080137 0.625 0.5 0.625
+            0.75 0.375 0.75 0.625 0.75 0.625 1 0.375 1 0.375 0.5 0.375 0.75 0.125 0.75 0.875 0.5
+            0.875 0.75 0.625 0.75 0.625 0 0.625 0.25 0.375 0.25 0.9879898 0.934849 0.01201033
+            0.9348492 0.01201033 0.0294367 0.625 0.75 0.625 1 0.375 1 0.375 0.5 0.375 0.75 0.125
+            0.75 0.875 0.5 0.875 0.75 0.625 0.75 0.9779083 0.9898082 0.02209162 0.9898082 0.02209162
+            0.03887897 0.625 0.75 0.625 1 0.375 1 0.375 0.5 0.375 0.75 0.125 0.75 0.875 0.5 0.875
+            0.75 0.625 0.75 0.625 0.25 0.625 0.5 0.375 0.5 0.625 0.5 0.625 0.75 0.375 0.75 0.9895817
+            0.9853158 0.01041829 0.9853159 0.01041829 0.04472953 0.125 0.5 0.375 0.5 0.375 0.75
+            0.875 0.5 0.875 0.75 0.625 0.75 0.625 0 0.625 0.25 0.375 0.25 0.625 0.25 0.625 0.5 0.375
+            0.5 0.9890853 1.01271 0.01658397 1.01271 0.01658385 -0.01105642 0.375 0.5 0.375 0.75
+            0.125 0.75 0.875 0.5 0.875 0.75 0.625 0.75 0.625 0.25 0.625 0.5 0.375 0.5 0.9963764
+            0.9797378 0.003623604 0.979738 0.003623604 0.02758556 0.375 0.5 0.375 0.75 0.125 0.75
+            0.875 0.5 0.875 0.75 0.625 0.75 0.625 0.25 0.625 0.5 0.375 0.5 0.625 0.5 0.625 0.75
+            0.375 0.75 0.9935498 0.9894029 0.006450235 0.9894029 0.006450176 0.004644393 0.375 0.5
+            0.375 0.75 0.125 0.75 0.875 0.5 0.875 0.75 0.625 0.75 0.625 0 0.625 0.25 0.375 0.25
+            0.625 0.25 0.625 0.5 0.375 0.5 0.9896941 0.9787876 0.01030582 0.9787876 0.01030582
+            0.03325879 0.375 0.5 0.375 0.75 0.125 0.75 0.875 0.5 0.875 0.75 0.625 0.75 0.625 0.25
+            0.625 0.5 0.375 0.5 0.9924363 0.9985222 0.00756365 0.9985222 0.00756365 2.5034e-5 0.375
+            0.5 0.375 0.75 0.125 0.75 0.875 0.5 0.875 0.75 0.625 0.75 0.9916056 0.9963416
+            0.008394181 0.9963416 0.008394181 0.01480484 0.625 0.5 0.625 0.75 0.375 0.75 0.625 0.75
+            0.625 1 0.375 1 0.125 0.5 0.375 0.5 0.375 0.75 0.875 0.5 0.875 0.75 0.625 0.75 0.625 0
+            0.625 0.25 0.375 0.25 0.994859 1.010245 7.43712e-4 1.010284 6.24944e-4 -0.01147073 0.625
+            0.75 0.625 1 0.375 1 0.375 0.5 0.375 0.75 0.125 0.75 0.875 0.5 0.875 0.75 0.625 0.75
+            0.98956 0.9840635 0.01043969 0.9840635 0.01043969 0.006685674 0.625 0.75 0.625 1 0.375 1
+            0.375 0.5 0.375 0.75 0.125 0.75 0.875 0.5 0.875 0.75 0.625 0.75</float_array>
+          <technique_common>
+            <accessor source="#Plane_018-mesh-map-0-array" count="360" stride="2">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Plane_018-mesh-vertices">
+          <input semantic="POSITION" source="#Plane_018-mesh-positions" />
+        </vertices>
+        <triangles material="Material_018-material" count="88">
+          <input semantic="VERTEX" source="#Plane_018-mesh-vertices" offset="0" />
+          <input semantic="NORMAL" source="#Plane_018-mesh-normals" offset="1" />
+          <input semantic="TEXCOORD" source="#Plane_018-mesh-map-0" offset="2" set="0" />
+          <p>23 2 15 20 2 16 22 2 17 21 3 18 16 3 19 20 3 20 22 4 21 16 4 22 18 4 23 19 0 24 21 0 25
+            23 0 26 25 5 27 26 5 28 24 5 29 29 3 33 24 3 34 28 3 35 30 4 36 24 4 37 26 4 38 27 0 39
+            29 0 40 31 0 41 37 3 45 32 3 46 36 3 47 38 4 48 32 4 49 34 4 50 35 0 51 37 0 52 39 0 53
+            43 5 54 46 5 55 42 5 56 47 1 57 44 1 58 46 1 59 42 4 63 44 4 64 40 4 65 43 0 66 45 0 67
+            47 0 68 49 3 69 50 3 70 48 3 71 51 5 72 54 5 73 50 5 74 54 4 78 48 4 79 50 4 80 51 0 81
+            53 0 82 55 0 83 59 5 84 62 5 85 58 5 86 62 4 90 56 4 91 58 4 92 59 0 93 61 0 94 63 0 95
+            67 1 96 70 1 97 66 1 98 71 2 99 68 2 100 70 2 101 70 4 105 64 4 106 66 4 107 67 0 108 69
+            0 109 71 0 110 73 5 111 74 5 112 72 5 113 75 1 114 78 1 115 74 1 116 78 4 120 72 4 121
+            74 4 122 75 0 123 77 0 124 79 0 125 83 1 126 86 1 127 82 1 128 86 4 132 80 4 133 82 4
+            134 83 0 135 85 0 136 87 0 137 95 1 141 92 1 142 94 1 143 93 2 144 88 2 145 92 2 146 90
+            4 147 92 4 148 88 4 149 91 0 150 93 0 151 95 0 152 97 3 153 98 3 154 96 3 155 101 2 159
+            96 2 160 100 2 161 102 4 162 96 4 163 98 4 164 99 0 165 101 0 166 103 0 167 109 2 171
+            104 2 172 108 2 173 110 4 174 104 4 175 106 4 176 107 0 177 109 0 178 111 0 179 23 2 195
+            21 2 196 20 2 197 21 3 198 17 3 199 16 3 200 22 4 201 20 4 202 16 4 203 19 0 204 17 0
+            205 21 0 206 25 5 207 27 5 208 26 5 209 29 3 213 25 3 214 24 3 215 30 4 216 28 4 217 24
+            4 218 27 0 219 25 0 220 29 0 221 37 3 225 33 3 226 32 3 227 38 4 228 36 4 229 32 4 230
+            35 0 231 33 0 232 37 0 233 43 7 234 47 7 235 46 7 236 47 1 237 45 1 238 44 1 239 42 4
+            243 46 4 244 44 4 245 43 0 246 41 0 247 45 0 248 49 3 249 51 3 250 50 3 251 51 5 252 55
+            5 253 54 5 254 54 4 258 52 4 259 48 4 260 51 0 261 49 0 262 53 0 263 59 5 264 63 5 265
+            62 5 266 62 4 270 60 4 271 56 4 272 59 0 273 57 0 274 61 0 275 67 1 276 71 1 277 70 1
+            278 71 2 279 69 2 280 68 2 281 70 4 285 68 4 286 64 4 287 67 0 288 65 0 289 69 0 290 73
+            5 291 75 5 292 74 5 293 75 1 294 79 1 295 78 1 296 78 4 300 76 4 301 72 4 302 75 0 303
+            73 0 304 77 0 305 83 1 306 87 1 307 86 1 308 86 4 312 84 4 313 80 4 314 83 0 315 81 0
+            316 85 0 317 95 1 321 93 1 322 92 1 323 93 2 324 89 2 325 88 2 326 90 4 327 94 4 328 92
+            4 329 91 0 330 89 0 331 93 0 332 97 3 333 99 3 334 98 3 335 101 2 339 97 2 340 96 2 341
+            102 4 342 100 4 343 96 4 344 99 0 345 97 0 346 101 0 347 109 2 351 105 2 352 104 2 353
+            110 4 354 108 4 355 104 4 356 107 0 357 105 0 358 109 0 359</p>
+        </triangles>
+        <triangles material="graffity_pattern_1-material" count="6">
+          <input semantic="VERTEX" source="#Plane_018-mesh-vertices" offset="0" />
+          <input semantic="NORMAL" source="#Plane_018-mesh-normals" offset="1" />
+          <input semantic="TEXCOORD" source="#Plane_018-mesh-map-0" offset="2" set="0" />
+          <p>69 3 102 64 3 103 68 3 104 77 3 117 72 3 118 76 3 119 85 3 129 80 3 130 84 3 131 69 3
+            282 65 3 283 64 3 284 77 3 297 73 3 298 72 3 299 85 3 309 81 3 310 80 3 311</p>
+        </triangles>
+        <triangles material="graffity_pattern_2-material" count="6">
+          <input semantic="VERTEX" source="#Plane_018-mesh-vertices" offset="0" />
+          <input semantic="NORMAL" source="#Plane_018-mesh-normals" offset="1" />
+          <input semantic="TEXCOORD" source="#Plane_018-mesh-map-0" offset="2" set="0" />
+          <p>19 1 12 22 1 13 18 1 14 27 1 30 30 1 31 26 1 32 35 1 42 38 1 43 34 1 44 19 1 192 23 1
+            193 22 1 194 27 1 210 31 1 211 30 1 212 35 1 222 39 1 223 38 1 224</p>
+        </triangles>
+        <triangles material="graffity_pattern_3-material" count="6">
+          <input semantic="VERTEX" source="#Plane_018-mesh-vertices" offset="0" />
+          <input semantic="NORMAL" source="#Plane_018-mesh-normals" offset="1" />
+          <input semantic="TEXCOORD" source="#Plane_018-mesh-map-0" offset="2" set="0" />
+          <p>91 7 138 94 7 139 90 7 140 99 5 156 102 5 157 98 5 158 107 5 168 110 5 169 106 5 170 91
+            5 318 95 5 319 94 5 320 99 5 336 103 5 337 102 5 338 107 5 348 111 5 349 110 5 350</p>
+        </triangles>
+        <triangles material="graffity_pattern_4-material" count="6">
+          <input semantic="VERTEX" source="#Plane_018-mesh-vertices" offset="0" />
+          <input semantic="NORMAL" source="#Plane_018-mesh-normals" offset="1" />
+          <input semantic="TEXCOORD" source="#Plane_018-mesh-map-0" offset="2" set="0" />
+          <p>45 2 60 40 2 61 44 2 62 53 6 75 48 6 76 52 6 77 61 2 87 56 2 88 60 2 89 45 2 240 41 2
+            241 40 2 242 53 2 255 49 2 256 48 2 257 61 2 267 57 2 268 56 2 269</p>
+        </triangles>
+        <triangles material="rug_carpet-material" count="8">
+          <input semantic="VERTEX" source="#Plane_018-mesh-vertices" offset="0" />
+          <input semantic="NORMAL" source="#Plane_018-mesh-normals" offset="1" />
+          <input semantic="TEXCOORD" source="#Plane_018-mesh-map-0" offset="2" set="0" />
+          <p>1 0 0 2 0 1 0 0 2 5 0 3 6 0 4 4 0 5 9 0 6 10 0 7 8 0 8 13 0 9 14 0 10 12 0 11 1 0 180 3
+            0 181 2 0 182 5 0 183 7 0 184 6 0 185 9 0 186 11 0 187 10 0 188 13 0 189 15 0 190 14 0
+            191</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Plane_018" name="Plane.018" type="NODE">
+        <matrix sid="transform">-1.125 3.66572e-7 0 0 -3.66572e-7 -1.125 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#Plane_018-mesh" name="Plane.018">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Material_018-material" target="#Material_018-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0" />
+              </instance_material>
+              <instance_material symbol="graffity_pattern_1-material"
+                target="#graffity_pattern_1-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0" />
+              </instance_material>
+              <instance_material symbol="graffity_pattern_2-material"
+                target="#graffity_pattern_2-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0" />
+              </instance_material>
+              <instance_material symbol="graffity_pattern_3-material"
+                target="#graffity_pattern_3-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0" />
+              </instance_material>
+              <instance_material symbol="graffity_pattern_4-material"
+                target="#graffity_pattern_4-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0" />
+              </instance_material>
+              <instance_material symbol="rug_carpet-material" target="#rug_carpet-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0" />
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene" />
+  </scene>
+</COLLADA>

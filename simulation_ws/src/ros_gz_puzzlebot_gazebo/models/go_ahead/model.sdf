@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<sdf version='1.4'>
+    <model name="go_ahead">
+        <static>1</static>
+        <link name="link_1">
+            <visual name='visual'>
+                <pose frame=''>0 0 0 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://go_ahead/meshes/go_ahead.dae</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+    </model>
+
+
+</sdf>

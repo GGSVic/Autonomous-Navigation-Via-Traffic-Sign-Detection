@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<sdf version='1.4'>
+    <model name="piece_3">
+        <static>1</static>
+        <link name="link_1">
+            <visual name='visual'>
+                <pose frame=''>0 0 0.0015 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://puzzletrack_piece_3/meshes/piece_3.dae</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+    </model>
+</sdf>

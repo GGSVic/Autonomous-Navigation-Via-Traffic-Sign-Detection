@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="puzzletrack_1">
+
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics" />
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands" />
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster" />
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu" />
+
+    <include><uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground Plane</uri></include>
+    <include><uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sun</uri></include>
+
+    <scene><shadows>false</shadows></scene>
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>0.319654 -0.235002 9.29441 0 1.5138 0.009599</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+    <physics type="ode">
+      <real_time_update_rate>1000.0</real_time_update_rate>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+
+    <model name="puzzletrack">
+      <include><name>piece_1</name><pose>0 0 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_2</name><pose>0.51 0 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_3</name><pose>1.02 0 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_4</name><pose>1.53 0 0 0 0 0</pose><uri>model://puzzletrack_piece_2</uri></include>
+      <include><name>piece_5</name><pose>2.04 0 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_6</name><pose>2.55 0 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_7</name><pose>3.06 0 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_8</name><pose>3.57 0 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_9</name><pose>4.08 0 0 0 0 -1.57</pose><uri>model://puzzletrack_piece_2</uri></include>
+
+      <include><name>piece_10</name><pose>4.08 0.51 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_11</name><pose>4.08 1.02 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_12</name><pose>4.08 1.53 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_13</name><pose>4.08 2.04 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_14</name><pose>4.08 2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_3</uri></include>
+
+      <include><name>piece_15</name><pose>3.57 2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_16</name><pose>3.06 2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_17</name><pose>2.55 2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_18</name><pose>2.04 2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_19</name><pose>1.53 2.55 0 0 0 1.57</pose><uri>model://puzzletrack_piece_3</uri></include>
+      <include><name>piece_20</name><pose>1.53 2.04 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_21</name><pose>1.53 1.53 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_22</name><pose>1.53 1.02 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_23</name><pose>1.53 0.51 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+
+      <include><name>piece_24</name><pose>4.08 -0.51 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_25</name><pose>4.08 -1.02 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_26</name><pose>4.08 -1.53 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_27</name><pose>4.08 -2.04 0 0 0 -1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_28</name><pose>4.08 -2.55 0 0 0 -1.57</pose><uri>model://puzzletrack_piece_3</uri></include>
+      <include><name>piece_29</name><pose>2.55 -2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_2</uri></include>
+      <include><name>piece_30</name><pose>3.06 -2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_31</name><pose>3.57 -2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+
+      <include><name>piece_32</name><pose>1.53 -0.51 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_33</name><pose>1.53 -1.02 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_34</name><pose>1.53 -1.53 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_35</name><pose>1.53 -2.04 0 0 0 -1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_36</name><pose>1.53 -2.55 0 0 0 -1.57</pose><uri>model://puzzletrack_piece_3</uri></include>
+      <include><name>piece_37</name><pose>1.02 -2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_38</name><pose>0.51 -2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_39</name><pose>0 -2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_40</name><pose>-0.51 -2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+
+      <include><name>piece_41</name><pose>-1.02 -2.55 0 0 0 3.14159</pose><uri>model://puzzletrack_piece_3</uri></include>
+      <include><name>piece_42</name><pose>-1.02 -0.51 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_43</name><pose>-1.02 -1.02 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_44</name><pose>-1.02 -1.53 0 0 0 1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_45</name><pose>-1.02 -2.04 0 0 0 -1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_46</name><pose>-1.02 0 0 0 0 0</pose><uri>model://puzzletrack_piece_2</uri></include>
+      <include><name>piece_47</name><pose>-0.51 0 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_48</name><pose>-1.02 0.51 0 0 0 -1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_49</name><pose>-1.02 1.02 0 0 0 -1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_50</name><pose>-1.02 1.53 0 0 0 -1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_51</name><pose>-1.02 2.04 0 0 0 -1.57</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_52</name><pose>-1.02 2.55 0 0 0 1.57</pose><uri>model://puzzletrack_piece_3</uri></include>
+      <include><name>piece_53</name><pose>-0.51 2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_54</name><pose>0 2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_1</uri></include>
+      <include><name>piece_55</name><pose>0.51 2.55 0 0 0 0</pose><uri>model://puzzletrack_piece_2</uri></include>
+    </model>
+
+    <model name="traffic_assets">
+      <include><name>go_ahead</name><pose>1.275 -0.3 0.07 1.57 0 -1.57</pose><uri>model://go_ahead</uri></include>
+      <include><name>go_ahead_2</name><pose>1.24 0.31 0.07 1.57 0 3.14159</pose><uri>model://go_ahead</uri></include>
+      <include><name>max_speed</name><pose>2.31 -0.3 0.07 1.57 0 -1.57</pose><uri>model://max_speed</uri></include> 
+      <include><name>max_speed_2</name><pose>4.31 -0.35 0.07 1.57 0 0</pose><uri>model://max_speed</uri></include> 
+      <include><name>stop</name><pose>3.84 0.22 0.07 1.57 0 -1.57</pose><uri>model://stop</uri></include>
+      <include><name>roadwork</name><pose>2.91 2.3 0.07 1.57 0 1.57</pose><uri>model://roadwork</uri></include>
+      <include><name>roadwork_2</name><pose>1.30 -0.75 0.07 1.57 0 3.14159</pose><uri>model://roadwork</uri></include>
+      <include><name>roundabout</name><pose>2.8 -2.30 0.07 1.57 0 1.57</pose><uri>model://roundabout</uri></include>
+      <include><name>roundabout_2</name><pose>0.28 2.33 0.07 1.57 0 -1.57</pose><uri>model://roundabout</uri></include>
+      <include><name>turn_right</name><pose>3.84 -0.22 0.07 1.57 0 -1.57</pose><uri>model://turn_right</uri></include>
+      <include><name>turn_left</name><pose>-0.75 0.27 0.07 1.57 0 3.1415</pose><uri>model://turn_left</uri></include>
+      <include><name>give_way</name><pose>-1.28 0.27 0.07 1.57 0 3.1415</pose><uri>model://give_way</uri></include>
+      <include><name>traffic_light</name><pose>1.81 0.27 0.05 0 0 -1.57</pose><uri>model://traffic_light</uri></include>
+      <include><name>traffic_light_2</name><pose>1.75 -0.255 0.05 0 0 3.14159</pose><uri>model://traffic_light</uri></include>
+    </model>
+
+    <light name='light_source_1' type='spot'>
+      <pose>1.6 0.9 2.1 0 0 0</pose>
+      <direction>0 0 -1</direction>
+      <spot><inner_angle>0.6</inner_angle><outer_angle>3.0</outer_angle><falloff>1.0</falloff></spot>
+    </light>
+
+    <include>
+      <name>border_box</name>
+      <pose>1.68 -0.08 0.001 0 0 0</pose>
+      <uri>model://border_box_v2</uri>
+    </include>
+
+    <plugin filename="traffic_light_plugin" name="TrafficLightPlugin">
+      <traffic_light name="traffic_light"><red>10.0</red><green>7.0</green><yellow>3.0</yellow></traffic_light>
+      <traffic_light name="traffic_light_2"><green>7.0</green><yellow>3.0</yellow><red>10.0</red></traffic_light>
+    </plugin>
+
+  </world>
+</sdf>
