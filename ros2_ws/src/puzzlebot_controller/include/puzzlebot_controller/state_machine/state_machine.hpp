@@ -13,7 +13,8 @@
 
 /**
  * @class FiniteStateMachine
- * @brief Orchestrator node that manages state execution and event-based transitions.
+ * @brief Orchestrator node that manages state execution and event-based
+ * transitions.
  *
  * Implements a reactive FSM using unordered maps for O(1) state lookups.
  */
@@ -33,9 +34,9 @@ public:
    * @param ctx Pointer to the robot's short-term memory and sensor context.
    * @param loop_rate_s Execution frequency in seconds.
    */
-  FiniteStateMachine(const std::string& fsm_name,
-    std::shared_ptr<PuzzlebotController> robot_ctrl, std::shared_ptr<RobotContext> ctx,
-    double loop_rate_s);
+  FiniteStateMachine(const std::string &fsm_name,
+                     std::shared_ptr<PuzzlebotController> robot_ctrl,
+                     std::shared_ptr<RobotContext> ctx, double loop_rate_s);
 
   /**
    * @brief Registers a state and injects all required dependencies.
@@ -48,7 +49,13 @@ public:
   /**
    * @brief Manages transitions based on an event trigger.
    */
-  void handle_event(const std::string& event);
+  void handle_event(const std::string &event);
+
+  /**
+   * @brief Get the actual state
+   */
+
+  std::string get_state();
 
 private:
   /** @brief Core control loop. Executes the active state logic. */

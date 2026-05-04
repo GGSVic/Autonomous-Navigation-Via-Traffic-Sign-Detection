@@ -33,24 +33,25 @@ from puzzlebot_interfaces.msg import RoadPerception
 
 BRIDGE = CvBridge()
 
+
 class PathInterpreter(Node):
     """
     ROS 2 Node for road infrastructure interpretation and path planning.
 
     Subscribes to raw camera feeds and performs semantic segmentation to identify
-    lanes and crosswalks. Publishes steering targets and detection flags via 
+    lanes and crosswalks. Publishes steering targets and detection flags via
     the RoadPerception interface.
     """
 
     def __init__(self, node_name: str = "path_interpreter"):
         """
         Initializes the node, declares ROS parameters, and sets up communication.
-        
+
         Args:
             node_name (str): Name of the node in the ROS graph.
         """
         super().__init__(node_name)
-        
+
         self._declare_parameters()
         self._setup_communication()
 
@@ -90,7 +91,7 @@ class PathInterpreter(Node):
 
         # Subscriber for the raw BGR8 camera stream.
         self.create_subscription(Image, "/camera/image_raw", self._image_callback, sensor_qos)
-        
+
         # Publisher for annotated vision results (only active if debug:=True).
         self.output_img_pub = self.create_publisher(
             Image, "path_interpreter/processed_image", sensor_qos
@@ -105,7 +106,7 @@ class PathInterpreter(Node):
         """
         Main pipeline callback triggered by new camera frames.
 
-        Orchestrates the transition from raw pixels to semantic navigation roles 
+        Orchestrates the transition from raw pixels to semantic navigation roles
         through ROI cropping, LAB-based segmentation, and geometric profiling.
         """
         # Convert ROS Image message to OpenCV BGR8 format.
@@ -142,11 +143,15 @@ class PathInterpreter(Node):
 
         self._publish_results(scene.targets, percept.crosswalk)
 
-    def _visualize_results(self, img: np.ndarray, percept: RoadSegmenter.RoadSegmentationOutput,
-                          scene: SceneParser.SceneState) -> None:
+    def _visualize_results(
+        self,
+        img: np.ndarray,
+        percept: RoadSegmenter.RoadSegmentationOutput,
+        scene: SceneParser.SceneState,
+    ) -> None:
         """
         Generates and publishes an annotated frame with the current perception state.
-        
+
         Visualizes:
         - Detected road components (lines).
         - Crosswalk bounding boxes.
@@ -154,7 +159,7 @@ class PathInterpreter(Node):
         - Final navigation targets and steering vectors.
         """
         debug_img = img.copy()
-        
+
         RoadVisualizer.annotate_component(debug_img, percept.crosswalk)
         RoadVisualizer.render_components(debug_img, percept.road_lines)
         RoadVisualizer.render_analyses(debug_img, scene.analyses)
@@ -166,8 +171,8 @@ class PathInterpreter(Node):
     def _publish_results(self, targets: NavigationSet, crosswalk: RoadComponent) -> None:
         """
         Serializes semantic data into the RoadPerception interface for broadcasting.
-        
-        Calculates the steering angle and its unit vector components (x, y) 
+
+        Calculates the steering angle and its unit vector components (x, y)
         to facilitate pure pursuit or PID control strategies.
         """
         msg = RoadPerception()
@@ -181,14 +186,16 @@ class PathInterpreter(Node):
         if center_line is not None:
             msg.target_detected = True
             msg.target.steering_angle = center_line.steering_angle
-            
+
             # Unit vector projection relative to the robot's egocentric frame.
             msg.target.x_component = np.cos(center_line.steering_angle)
             msg.target.y_component = np.sin(center_line.steering_angle)
+            msg.target.verticality = center_line.verticality
         else:
             msg.target_detected = False
 
         self.results_pub.publish(msg)
+
 
 def main(args: List[str] = None) -> None:
     """
@@ -205,6 +212,8 @@ def main(args: List[str] = None) -> None:
         rclpy.shutdown()
         cv2.destroyAllWindows()
 
+
 if __name__ == "__main__":
     import sys
+
     main(sys.argv)

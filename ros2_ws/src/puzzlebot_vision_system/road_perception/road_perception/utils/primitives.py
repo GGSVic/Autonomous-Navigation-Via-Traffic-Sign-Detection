@@ -8,9 +8,11 @@ Designed for high-frequency access with minimal memory footprint.
 from dataclasses import dataclass
 import numpy as np
 
+
 @dataclass(frozen=True, slots=True)
 class Point2D:
     """Represents a discrete 2D coordinate in the image coordinate system."""
+
     x: int
     y: int
 
@@ -28,6 +30,7 @@ class Point2D:
 @dataclass(frozen=True, slots=True)
 class BoundingBox:
     """Immutable axis-aligned rectangular region defined by (x, y, width, height)."""
+
     x: int
     y: int
     w: int
@@ -38,13 +41,14 @@ class BoundingBox:
 class Line:
     """
     Immutable representation of a geometric line segment.
-    
+
     Attributes:
         p_lefty: The point where the line intersects the left ROI boundary.
         p_righty: The point where the line intersects the right ROI boundary.
         vx, vy: Unit vector components of the line's orientation.
         verticality: A metric (0.0 to 1.0) indicating how 'upright' the line is.
     """
+
     p_lefty: Point2D
     p_righty: Point2D
     vx: np.ndarray
@@ -56,10 +60,11 @@ class Line:
 class ContourFeatures:
     """
     Cache for spatial descriptors derived from OpenCV contours.
-    
-    This class is mutable to support the 'Lazy Evaluation' pattern used 
+
+    This class is mutable to support the 'Lazy Evaluation' pattern used
     in RoadComponent, allowing features to be computed only when requested.
     """
+
     area: float | None = None
     centroid: Point2D | None = None
     bbox: BoundingBox | None = None
@@ -70,6 +75,7 @@ class ContourFeatures:
 @dataclass(frozen=True, slots=True)
 class Color:
     """Immutable RGB representation for consistent annotation styles."""
+
     r: int
     g: int
     b: int

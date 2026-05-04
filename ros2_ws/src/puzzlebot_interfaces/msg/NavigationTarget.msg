@@ -17,3 +17,7 @@ float64 steering_angle
 # y_component: Estimated lateral distance (left/right).
 float64 x_component
 float64 y_component
+
+float32 verticality # Orientation of the detected road component (in degrees). 
+                        # Used by the controller to filter false positives (e.g., zebra crossings) 
+                        # by distinguishing raw detection geometry from the desired steering_angle.

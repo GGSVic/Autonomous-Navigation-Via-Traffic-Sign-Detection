@@ -22,8 +22,8 @@ from road_perception.utils.perception_context import PerceptionContext
 class RoadSegmenter:
     """
     Orchestrates the conversion of raw RGB imagery into semantic road entities.
-    
-    Uses LAB color-space for lighting-invariant thresholding and connectivity-based 
+
+    Uses LAB color-space for lighting-invariant thresholding and connectivity-based
     reconstruction to filter out distant or irrelevant noise.
     """
 
@@ -39,19 +39,20 @@ class RoadSegmenter:
     @dataclass(frozen=True, slots=True)
     class RoadSegmentationOutput:
         """
-        Data container for the geometric infrastructure detected during the 
+        Data container for the geometric infrastructure detected during the
         segmentation and analysis pipeline.
         """
-        road_mask: np.ndarray             # Combined binary mask of lines and lanes
-        road_lines: List[RoadComponent]    # Vertical lane markings
-        crosswalk: RoadComponent | None    # Fused horizontal marking entity
+
+        road_mask: np.ndarray  # Combined binary mask of lines and lanes
+        road_lines: List[RoadComponent]  # Vertical lane markings
+        crosswalk: RoadComponent | None  # Fused horizontal marking entity
 
     @staticmethod
     def adjust_brightness(img: np.ndarray, target: float = 0.55) -> None:
         """
         Dynamically normalizes image brightness to a specific target level.
-        
-        Ensures consistent segmentation performance across varying lighting 
+
+        Ensures consistent segmentation performance across varying lighting
         conditions by scaling image intensity.
 
         Args:
@@ -100,7 +101,7 @@ class RoadSegmenter:
         )
 
     @staticmethod
-    def analyze_contours(bw_lines: np.ndarray, area_th: int = 135) -> List[RoadComponent]:
+    def analyze_contours(bw_lines: np.ndarray, area_th: int = 150) -> List[RoadComponent]:
         """
         Extracts filtered RoadComponent objects from a binary mask.
 
@@ -124,8 +125,9 @@ class RoadSegmenter:
         return road_lines
 
     @staticmethod
-    def classify_lines(lines: List[RoadComponent], 
-                      verticality_th: float = 0.15) -> Tuple[List[RoadComponent], List[RoadComponent]]:
+    def classify_lines(
+        lines: List[RoadComponent], verticality_th: float = 0.15
+    ) -> Tuple[List[RoadComponent], List[RoadComponent]]:
         """
         Sorts components into lane markings or crosswalk candidates based on orientation.
 
@@ -137,9 +139,9 @@ class RoadSegmenter:
         """
         lanes = [l for l in lines if l.fitline.verticality > verticality_th]
         zebras = [l for l in lines if l.fitline.verticality <= verticality_th]
-        
-        return lanes, zebras    
-        
+
+        return lanes, zebras
+
     @staticmethod
     def check_crosswalk(zebras: List[RoadComponent]) -> RoadComponent | None:
         """
@@ -152,19 +154,19 @@ class RoadSegmenter:
         """
         if len(zebras) < 2:
             return None
-        
+
         all_points: List[np.ndarray] = [l.contour for l in zebras]
         fused_cnt: np.ndarray = np.vstack(all_points).astype(np.int32)
-        
+
         try:
             return RoadComponent(fused_cnt, ComponentType.CROSSWALK)
         except ValueError:
             return None
- 
+
     @staticmethod
     def reconstruct_from_seed(bw: np.ndarray, seed_bw: np.ndarray) -> np.ndarray:
         """
-        Performs morphological reconstruction to restore connected components that 
+        Performs morphological reconstruction to restore connected components that
         intersect with a designated 'seed' region (usually the bottom of the ROI).
 
         Args:
@@ -180,7 +182,7 @@ class RoadSegmenter:
         intersecting_labels = np.unique(labels[seed_bw > 0])
 
         for label in intersecting_labels:
-            if label != 0: # Skip background
+            if label != 0:  # Skip background
                 reconstructed[labels == label] = 255
 
         return reconstructed
@@ -193,11 +195,11 @@ class RoadSegmenter:
         2. Segments LAB masks for lines and lanes.
         3. Filters components using connectivity seeds near the robot.
         4. Classifies entities into lanes and crosswalks.
-        """ 
+        """
         # --- PREPROCESSING ---
         RoadSegmenter.adjust_brightness(img_rgb)
 
-        # --- SEGMENTATION --- 
+        # --- SEGMENTATION ---
         img_lab = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2Lab)
         raw_lines_mask = RoadSegmenter.segment_lines(img_lab)
         raw_lanes_mask = RoadSegmenter.segment_lanes(img_lab)
@@ -205,7 +207,7 @@ class RoadSegmenter:
         # --- CONNECTIVITY RECONSTRUCTION ---
         # Keep only segments connected to the bottom of the ROI (near the robot)
         frame_h = PerceptionContext.frame_height()
-        frame_w = PerceptionContext.frame_width() 
+        frame_w = PerceptionContext.frame_width()
 
         seed = np.zeros((frame_h, frame_w), dtype=np.uint8)
         start_row = frame_h - (frame_h // 3)

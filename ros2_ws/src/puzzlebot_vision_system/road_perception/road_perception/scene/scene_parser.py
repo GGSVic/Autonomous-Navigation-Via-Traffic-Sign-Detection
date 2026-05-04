@@ -152,11 +152,15 @@ class SceneParser:
             if analysis.proximity.edge_proximity < threshold:
                 if analysis.proximity.lateral_gradient < 0:
                     output.left_line = NavigationTarget(
-                        NavigationRole.LEFT_LINE, analysis.component.centroid
+                        NavigationRole.LEFT_LINE,
+                        analysis.component.centroid,
+                        analysis.component.fitline.verticality,
                     )
                 else:
                     output.right_line = NavigationTarget(
-                        NavigationRole.RIGHT_LINE, analysis.component.centroid
+                        NavigationRole.RIGHT_LINE,
+                        analysis.component.centroid,
+                        analysis.component.fitline.verticality,
                     )
             else:
                 center_candidates.append(analysis)
@@ -166,7 +170,9 @@ class SceneParser:
                 center_candidates, key=lambda e: abs(e.component.centroid.x - roi_center_x)
             )
             output.center_line = NavigationTarget(
-                NavigationRole.CENTER_LINE, best_center.component.centroid
+                NavigationRole.CENTER_LINE,
+                best_center.component.centroid,
+                best_center.component.fitline.verticality,
             )
 
         return output
@@ -243,4 +249,3 @@ class SceneParser:
         grad = np.gradient(dist_map)
 
         return dist_map, grad
-    

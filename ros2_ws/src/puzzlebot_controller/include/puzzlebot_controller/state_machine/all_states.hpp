@@ -34,11 +34,13 @@ public:
 protected:
   void on_entry() override {
     robot_ctrl_->set_linear_speed(0.3);
-    if (!timer_) timer_ = std::make_shared<Chronometer>(clock_);
+    if (!timer_)
+      timer_ = std::make_shared<Chronometer>(clock_);
     timer_->start(3.5);
   }
   std::optional<std::string> on_execute() override {
-    if (timer_ && timer_->timeout_reached()) return "timeout";
+    if (timer_ && timer_->timeout_reached())
+      return "timeout";
     return std::nullopt;
   }
 
@@ -54,7 +56,8 @@ public:
 
 protected:
   std::optional<std::string> on_execute() override {
-    if (ctx_->direction.has_value()) return ctx_->direction->sign_name;
+    if (ctx_->direction.has_value())
+      return ctx_->direction->sign_name;
     return std::nullopt;
   }
 };
@@ -67,17 +70,14 @@ protected:
   void on_entry() override {
     robot_ctrl_->pause_line_following();
     robot_ctrl_->maneuver_straight();
-    if (!timer_) timer_ = std::make_shared<Chronometer>(clock_);
-    timer_->start(1.0);
   }
   std::optional<std::string> on_execute() override {
-    if (timer_ && timer_->timeout_reached()) return "done";
+    if (ctx_->is_path_recovered)
+      return "done";
     return std::nullopt;
   }
-  void on_exit() override { robot_ctrl_->resume_line_following(); }
 
-private:
-  std::shared_ptr<Chronometer> timer_;
+  void on_exit() override { robot_ctrl_->resume_line_following(); }
 };
 
 class MTurnRight : public State {
@@ -88,17 +88,13 @@ protected:
   void on_entry() override {
     robot_ctrl_->pause_line_following();
     robot_ctrl_->turn_right();
-    if (!timer_) timer_ = std::make_shared<Chronometer>(clock_);
-    timer_->start(3.5);
   }
   std::optional<std::string> on_execute() override {
-    if (timer_ && timer_->timeout_reached()) return "done";
+    if (ctx_->is_path_recovered)
+      return "done";
     return std::nullopt;
   }
   void on_exit() override { robot_ctrl_->resume_line_following(); }
-
-private:
-  std::shared_ptr<Chronometer> timer_;
 };
 
 class MTurnLeft : public State {
@@ -109,17 +105,13 @@ protected:
   void on_entry() override {
     robot_ctrl_->pause_line_following();
     robot_ctrl_->turn_left();
-    if (!timer_) timer_ = std::make_shared<Chronometer>(clock_);
-    timer_->start(3.5);
   }
   std::optional<std::string> on_execute() override {
-    if (timer_ && timer_->timeout_reached()) return "done";
+    if (ctx_->is_path_recovered)
+      return "done";
     return std::nullopt;
   }
   void on_exit() override { robot_ctrl_->resume_line_following(); }
-
-private:
-  std::shared_ptr<Chronometer> timer_;
 };
 
 class MUTurn : public State {
@@ -130,17 +122,13 @@ protected:
   void on_entry() override {
     robot_ctrl_->pause_line_following();
     robot_ctrl_->rotate_right();
-    if (!timer_) timer_ = std::make_shared<Chronometer>(clock_);
-    timer_->start(7.5);
   }
   std::optional<std::string> on_execute() override {
-    if (timer_ && timer_->timeout_reached()) return "done";
+    if (ctx_->is_path_recovered)
+      return "done";
     return std::nullopt;
   }
   void on_exit() override { robot_ctrl_->resume_line_following(); }
-
-private:
-  std::shared_ptr<Chronometer> timer_;
 };
 
 // --- 3. TRAFFIC CONTROL STATES ---
@@ -153,7 +141,8 @@ protected:
   std::optional<std::string> on_execute() override {
     auto tf = ctx_->tf_light;
     auto reg = ctx_->regulatory;
-    if (!tf.has_value() && !reg.has_value()) return std::nullopt;
+    if (!tf.has_value() && !reg.has_value())
+      return std::nullopt;
 
     puzzlebot_interfaces::msg::TrafficSignDetection sign;
     if (tf.has_value() && reg.has_value()) {
@@ -163,10 +152,14 @@ protected:
     }
 
     static const std::unordered_map<std::string, std::string> actions = {
-      {"tf_red", "wait_for_green"}, {"stop", "stop"}, {"give_way", "yield"},
-      {"tf_green", "proceed"}, {"tf_yellow", "proceed"}};
+        {"tf_red", "wait_for_green"},
+        {"stop", "stop"},
+        {"give_way", "yield"},
+        {"tf_green", "proceed"},
+        {"tf_yellow", "proceed"}};
 
-    if (actions.count(sign.sign_name)) return actions.at(sign.sign_name);
+    if (actions.count(sign.sign_name))
+      return actions.at(sign.sign_name);
     return "proceed";
   }
 };
@@ -194,7 +187,8 @@ public:
 
 protected:
   void on_entry() override {
-    if (!timer_) timer_ = std::make_shared<Chronometer>(clock_);
+    if (!timer_)
+      timer_ = std::make_shared<Chronometer>(clock_);
     std::random_device rd;
     std::mt19937 gen(rd());
     std::bernoulli_distribution d(0.5);
@@ -211,7 +205,8 @@ protected:
     }
   }
   std::optional<std::string> on_execute() override {
-    if (timer_ && timer_->timeout_reached()) return "proceed";
+    if (timer_ && timer_->timeout_reached())
+      return "proceed";
     return std::nullopt;
   }
   void on_exit() override { robot_ctrl_->resume_line_following(); }
@@ -226,13 +221,15 @@ public:
 
 protected:
   void on_entry() override {
-    if (!timer_) timer_ = std::make_shared<Chronometer>(clock_);
+    if (!timer_)
+      timer_ = std::make_shared<Chronometer>(clock_);
     robot_ctrl_->pause_line_following();
     robot_ctrl_->stop();
     timer_->start(3.0);
   }
   std::optional<std::string> on_execute() override {
-    if (timer_ && timer_->timeout_reached()) return "proceed";
+    if (timer_ && timer_->timeout_reached())
+      return "proceed";
     return std::nullopt;
   }
   void on_exit() override { robot_ctrl_->resume_line_following(); }

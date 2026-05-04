@@ -20,6 +20,7 @@ class NavigationRole(Enum):
     """
     Functional categories for path-guiding elements.
     """
+
     LEFT_LINE = "left"
     CENTER_LINE = "center"
     RIGHT_LINE = "right"
@@ -29,22 +30,23 @@ class NavigationRole(Enum):
 class NavigationTarget:
     """
     Persistent navigation goal representing a refined identity.
-    
+
     Stores the minimal spatial state required for high-frequency control loops
     and trajectory tracking.
     """
 
     role: NavigationRole
     centroid: Point2D
+    verticality: float
 
     @property
     def steering_angle(self) -> float:
         """
         Computes the target steering angle relative to the robot's projected origin.
-        
-        The calculation uses an egocentric reference frame provided by the 
+
+        The calculation uses an egocentric reference frame provided by the
         PerceptionContext.
-        
+
         Returns:
             float: Steering angle in radians.
         """
@@ -61,8 +63,8 @@ class NavigationSet:
     """
     Spatial container for the active navigation references in a single frame.
 
-    Each target represents a high-level reference (Left, Center, Right) 
-    used by the Finite State Machine (FSM) or PID controllers to guide 
+    Each target represents a high-level reference (Left, Center, Right)
+    used by the Finite State Machine (FSM) or PID controllers to guide
     the robot's motion.
     """
 
@@ -73,4 +75,6 @@ class NavigationSet:
     @property
     def as_list(self) -> List[NavigationTarget]:
         """Returns all non-None targets for batch processing or visualization."""
-        return [t for t in [self.left_line, self.center_line, self.right_line] if t is not None]
+        return [
+            t for t in [self.left_line, self.center_line, self.right_line] if t is not None
+        ]
