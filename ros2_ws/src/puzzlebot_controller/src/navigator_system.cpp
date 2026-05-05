@@ -133,8 +133,7 @@ void NavigatorSystem::line_callback(
 
   } else if (msg->target_detected) {
     if (ctx_->is_path_recovered == false) {
-      // Validation: Use your existing logic (verticality and steering)
-      // to decide if this frame is a "good" candidate for recovery.
+      // Decide if this frame is a "good" candidate for recovery.
       if (msg->target.verticality > 0.4 && msg->target.steering_angle > 1.0) {
         ctx_->recovery_hits++;
       } else {

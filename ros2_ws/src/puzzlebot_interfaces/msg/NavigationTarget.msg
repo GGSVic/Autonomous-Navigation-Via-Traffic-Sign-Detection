@@ -18,6 +18,5 @@ float64 steering_angle
 float64 x_component
 float64 y_component
 
-float32 verticality # Orientation of the detected road component (in degrees). 
+float32 verticality # Orientation of the detected road component. 
                         # Used by the controller to filter false positives (e.g., zebra crossings) 
-                        # by distinguishing raw detection geometry from the desired steering_angle.

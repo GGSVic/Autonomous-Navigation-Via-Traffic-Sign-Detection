@@ -62,7 +62,7 @@ This guide provides the necessary steps to set up the Puzzlebot simulation and n
 To ensure all components, including controllers and simulation assets, are present, clone the repository with its submodules:
 
 ```bash
-git clone --recurse-submodules https://github.com/your-username/puzzlebot_nav_stack.git
+git clone --recurse-submodules https://github.com/GGSVic/Autonomous-Navigation-Via-Traffic-Sign-Detection.git puzzlebot_nav_stack
 cd puzzlebot_nav_stack
 ```
 
@@ -102,7 +102,8 @@ If everything is correctly configured, you should see a table showing your GPU i
 From the project root, build the custom image using the development container configuration:
 
 ```bash
-docker build -t puzzlebot_nav_stack:latest -f .devcontainer/Dockerfile .
+docker build -t puzzlebot_nav_stack:latest -f .devcontainer/Dockerfile .devcontainer/
+
 ```
 
 ---
@@ -145,12 +146,18 @@ Inside the container (or locally, if running without Docker), navigate to the pr
 
 #### Simulation Workspace (Ignition Gazebo)
 
+Before moving on to the compilation, make sure to update your system repositories so rosdep can work correctly:
+
+```bash
+sudo apt update
+```
+
 Includes the Puzzlebot models and the autonomous navigation track.
 
 ```bash
 cd /home/ubuntu/project/simulation_ws
 rosdep install -i --from-path src --rosdistro humble -y
-colcon build --symlink-install
+colcon build
 source install/setup.bash
 cd ..
 ```
@@ -164,7 +171,7 @@ Contains the FSM, PID controllers, and vision nodes.
 ```bash
 cd ros2_ws
 rosdep install -i --from-path src --rosdistro humble -y
-colcon build --symlink-install
+colcon build
 source install/setup.bash
 ```
 
@@ -172,9 +179,10 @@ source install/setup.bash
 
 ### 4. Run the System
 
-Launch the master script to start the simulation and control nodes.
+Before launching, you must set the environment variable to specify the correct robot model. Then, launch the master script to start the simulation and control nodes.
 
 ```bash
+export PUZZLEBOT_MODEL=vision
 ros2 launch puzzlebot_controller master.launch.py
 ```
 

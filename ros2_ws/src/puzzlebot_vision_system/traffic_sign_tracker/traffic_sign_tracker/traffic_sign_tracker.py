@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/python_envs/yolo_env/bin/python3
 """
 Traffic Sign Detection and Tracking Node.
 
@@ -41,7 +41,7 @@ class TrafficSignTracker(Node):
 
     def __init__(self, node_name: str = "traffic_sign_tracker") -> None:
         """
-        Initializes the perception pipeline, hardware configurations, and ROS2 
+        Initializes the perception pipeline, hardware configurations, and ROS2
         communication interfaces.
         """
         super().__init__(node_name)
@@ -60,7 +60,9 @@ class TrafficSignTracker(Node):
         self.declare_parameter(
             "device_type",
             "cpu",
-            ParameterDescriptor(description="Hardware accelerator for inference ('cpu', 'cuda')"),
+            ParameterDescriptor(
+                description="Hardware accelerator for inference ('cpu', 'cuda')"
+            ),
         )
         # Boolean debug parameter (default: False)
         self.declare_parameter(
@@ -80,7 +82,7 @@ class TrafficSignTracker(Node):
 
     def _setup_models(self) -> None:
         """
-        Loads YOLO weights from the package's share directory and configures 
+        Loads YOLO weights from the package's share directory and configures
         the inference engine on the specified hardware device.
         """
         device_type = self.get_parameter("device_type").get_parameter_value().string_value
@@ -101,7 +103,7 @@ class TrafficSignTracker(Node):
 
     def _setup_communication(self) -> None:
         """
-        Configures publishers, subscribers, and Quality of Service (QoS) profiles 
+        Configures publishers, subscribers, and Quality of Service (QoS) profiles
         for efficient image and data transport.
         """
         qos_profile = qos_profile_sensor_data
@@ -175,7 +177,7 @@ def main(args: Optional[List[str]] = None) -> None:
     """
     rclpy.init(args=args)
     node = TrafficSignTracker()
-    
+
     try:
         rclpy.spin(node)
     except Exception as error:

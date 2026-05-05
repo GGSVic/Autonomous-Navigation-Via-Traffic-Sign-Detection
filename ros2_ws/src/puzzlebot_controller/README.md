@@ -59,6 +59,13 @@ Rather than a static, linear pipeline, this package operates as a State-Driven D
 
 ## Finite State Machine (FSM)
 
+<p align="center">
+  <img src="assets/fsm.png" width="720" alt="FSM Overview"/>
+</p>
+<p align="center">
+  <em>Finite State Machine.</em>
+</p>
+
 The robot's behavior is governed by a transition-based logic map:
 
 ### 1. Flow & Perception States
@@ -91,16 +98,6 @@ The robot's behavior is governed by a transition-based logic map:
 
 - **`M_STRAIGHT / M_TURN / M_U_TURN`**  
   Kinetic maneuvers that pause line-following to perform open-loop movements. To ensure robustness, these states monitor the `is_path_recovered` flag in the `RobotContext`. Once the vision system re-detects the navigation path, the state triggers a `done` event and returns the robot to `FREE_FLOW`.
-
----
-
-## State Interaction Model
-
-Each state follows a consistent structure:
-
-- **Reads:** `RobotContext` (including `is_path_recovered` status)
-- **Acts on:** `PuzzlebotController`
-- **Generates:** Events such as `timeout`, `done`, or `proceed`
 
 ---
 

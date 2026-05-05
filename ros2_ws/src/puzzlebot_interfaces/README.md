@@ -20,6 +20,8 @@ Represents a specific waypoint or tracking point that the robot must follow.
 
 - **`x_component` / `y_component`:** The relative coordinates of the target point in the robot's local frame.
 
+- **`verticality`:**: Represents the angular orientation of the detected road component used to generate the navigation target. This parameter is essential for filtering false positives, ensuring path consistency when reacquiring the trajectory following maneuvers or intersections.
+
 ---
 
 ### `RoadPerception.msg`
@@ -44,12 +46,12 @@ The primary output for infrastructure recognition, combining raw detection with 
 
 Standardized mapping used by the tracker to ensure logical consistency:
 
-| Constant         | Value | Description                                      |
-|-----------------|--------|--------------------------------------------------|
-| `DIRECTION`      | 1      | Manoeuvre guidance (e.g., Turn Right/Left).      |
-| `TRAFFIC_LIGHT`  | 2      | Signalized intersection control.                 |
-| `REGULATORY`     | 3      | High-priority priority signs (e.g., STOP).       |
-| `CAUTION`        | 4      | Warnings or speed limit changes.                 |
+| Constant        | Value | Description                                 |
+| --------------- | ----- | ------------------------------------------- |
+| `DIRECTION`     | 1     | Manoeuvre guidance (e.g., Turn Right/Left). |
+| `TRAFFIC_LIGHT` | 2     | Signalized intersection control.            |
+| `REGULATORY`    | 3     | High-priority priority signs (e.g., STOP).  |
+| `CAUTION`       | 4     | Warnings or speed limit changes.            |
 
 #### Fields
 
